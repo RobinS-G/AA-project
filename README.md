@@ -6,6 +6,7 @@ https://robins-g.github.io/AA-project/
 
 Pseudo-code
 
+```json
 function draw() {
     randomSeed(params.Random_Seed)
     rectMode(CENTER)
@@ -16,4 +17,5 @@ function draw() {
             rotate(angle) //thanks to rotate I should be able to rotate the rectangles so it matches their position from the center
             rect(p.x, p.y, random(5,20), random(10,75))
         }
-} 
+}
+```

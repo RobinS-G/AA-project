@@ -6,7 +6,7 @@ https://robins-g.github.io/AA-project/
 
 Pseudo-code
 
-```json
+```ts
 function draw() {
     randomSeed(params.Random_Seed)
     rectMode(CENTER)

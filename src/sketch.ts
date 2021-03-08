@@ -24,11 +24,17 @@ function draw() {
     background("white")
     translate(width/2, height/2)
     for (let angle = 0; angle < TWO_PI; angle += TWO_PI / params.Nombre) {
-            const p = p5.Vector.fromAngle(angle).mult(random(5, 250))
+        let k=random(20,250)
+        const p = p5.Vector.fromAngle(angle).mult(k)
+        push()
             rotate(angle)
-            rect(p.x, p.y, random(5,20), random(10,75))
-        }
-}       
+            if(k<50){
+            rect(p.x, p.y, random(1,5), random(1,25))
+            }
+            else rect(p.x, p.y, random(5,20), random(10,50))
+        pop()
+    }
+}      
 
 
 // -------------------

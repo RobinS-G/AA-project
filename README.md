@@ -14,8 +14,10 @@ function draw() {
     translate(width/2, height/2)
     for (let angle = 0; angle < TWO_PI; angle += TWO_PI / params.Nombre) {
             const p = p5.Vector.fromAngle(angle).mult(random(5, 250))
-            rotate(angle) //thanks to rotate I should be able to rotate the rectangles so it matches their position from the center
-            rect(p.x, p.y, random(5,20), random(10,75))
+            push()
+              rotate(angle) //thanks to rotate I should be able to rotate the rectangles so it matches their position from the center
+              rect(p.x, p.y, random(5,20), random(10,75))
+            pop()
         }
 }
 ```

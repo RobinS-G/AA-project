@@ -25,13 +25,12 @@ function draw() {
     translate(width/2, height/2)
     for (let angle = 0; angle < TWO_PI; angle += TWO_PI / params.Nombre) {
         let k=random(20,250)
-        const p = p5.Vector.fromAngle(angle).mult(k)
         push()
             rotate(angle)
             if(k<50){
-            rect(p.x, p.y, random(1,5), random(1,25))
+            rect(k, 0, random(1,25), random(1,5))
             }
-            else rect(p.x, p.y, random(5,20), random(15,50))
+            else rect(k, 0, random(15,50), random(5,20))
         pop()
     }
 }      

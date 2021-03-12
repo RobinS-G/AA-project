@@ -23,6 +23,7 @@ function draw() {
     rectMode(CENTER)
     background("white")
     translate(width/2, height/2)
+    fill(255, 255, 255, 0)
     for (let angle = 0; angle < TWO_PI; angle += TWO_PI / params.Nombre) {
         let k=random(20,250)
         push()

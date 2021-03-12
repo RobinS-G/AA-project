@@ -31,7 +31,7 @@ function draw() {
             if(k<50){
             rect(p.x, p.y, random(1,5), random(1,25))
             }
-            else rect(p.x, p.y, random(5,20), random(10,50))
+            else rect(p.x, p.y, random(5,20), random(15,50))
         pop()
     }
 }      

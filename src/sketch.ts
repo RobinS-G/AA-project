@@ -4,7 +4,7 @@
 
 const gui = new dat.GUI()
 const params = {
-    Nombre: 100,
+    Nombre: 145,
     Random_Seed: 0,
     Rotation: 0,
     Red:255,

@@ -33,7 +33,7 @@ gui.add(params, "Blue2", 0, 255, 1)
 gui.add(params, "Transparency2", 0, 255, 1)
 gui.add(params, "Download_Image")
 
-// -------------------
+// --------------------
 //       Drawing
 // -------------------
 

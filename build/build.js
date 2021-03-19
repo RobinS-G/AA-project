@@ -45,16 +45,14 @@ function draw() {
             fill(lerpColor(color1, color2, t));
             t += 1 / params.Number;
         }
+        var f = k / 240;
+        var min_w = lerp(1, 15, f);
+        var max_w = lerp(15, 100, f);
+        var min_h = lerp(1, 3, f);
+        var max_h = lerp(5, 20, f);
         push();
         rotate(angle);
-        if (k < 40) {
-            rect(k, 0, random(1, 20), random(1, 3));
-        }
-        else if (k < 100) {
-            rect(k, 0, random(7, 30), random(3, 10));
-        }
-        else
-            rect(k, 0, random(15, 70), random(5, 20));
+        rect(k, 0, random(min_w, max_w), random(min_h, max_h));
         pop();
     }
 }

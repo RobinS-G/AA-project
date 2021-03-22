@@ -57,7 +57,7 @@ function draw() {
         }
         const f = k / 240
         const min_w = lerp(1, 15, f)
-        const max_w = lerp(15, 100, f)
+        const max_w = lerp(15, 90, f)
         const min_h = lerp(1, 3, f)
         const max_h = lerp(5, 20, f)
         push()

@@ -47,7 +47,7 @@ function draw() {
         }
         var f = k / 240;
         var min_w = lerp(1, 15, f);
-        var max_w = lerp(15, 100, f);
+        var max_w = lerp(15, 90, f);
         var min_h = lerp(1, 3, f);
         var max_h = lerp(5, 20, f);
         push();

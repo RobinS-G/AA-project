@@ -5,7 +5,7 @@ var params = {
     Rotation: 0,
     Background: "#FFFFFF",
     Stroke: "#000000",
-    Plain_Gradient: 0,
+    Gradient: false,
     Color1: "#FFFFFF",
     Transparency1: 0,
     Color2: "#FFFFFF",
@@ -17,9 +17,9 @@ gui.add(params, "Random_Seed", 0, 100, 1);
 gui.add(params, "Rotation", 0, 180, 1);
 gui.addColor(params, "Background");
 gui.addColor(params, "Stroke");
-gui.add(params, "Plain_Gradient", 0, 1, 1);
 gui.addColor(params, "Color1");
 gui.add(params, "Transparency1", 0, 255, 1);
+gui.add(params, "Gradient");
 gui.addColor(params, "Color2");
 gui.add(params, "Transparency2", 0, 255, 1);
 gui.add(params, "Download_Image");
@@ -37,14 +37,14 @@ function draw() {
     background(params.Background);
     translate(width / 2, height / 2);
     stroke(params.Stroke);
-    if (params.Plain_Gradient == 0) {
+    if (!params.Gradient) {
         fill(hexToRGBA(params.Color1, params.Transparency1));
     }
     var t = 0;
     rotate(params.Rotation);
     for (var angle = 0; angle < TWO_PI; angle += TWO_PI / params.Number) {
         var k = random(10, 240);
-        if (params.Plain_Gradient == 1) {
+        if (params.Gradient) {
             fill(lerpColor(hexToRGBA(params.Color1, params.Transparency1), hexToRGBA(params.Color2, params.Transparency2), t));
             t += 1 / params.Number;
         }

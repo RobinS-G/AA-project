@@ -7,14 +7,11 @@ const params = {
     Number: 100,
     Random_Seed: 0,
     Rotation: 0,
+    Background: "#FFFFFF",
     Plain_Gradient: 0,
-    Red1:255,
-    Green1: 255,
-    Blue1:255,
+    Color1: "#FFFFFF",
     Transparency1: 0,
-    Red2:255,
-    Green2: 255,
-    Blue2:255,
+    Color2: "#FFFFFF",
     Transparency2: 0,
 
     Download_Image: () => save(),
@@ -22,14 +19,11 @@ const params = {
 gui.add(params, "Number", 0, 200, 1)
 gui.add(params, "Random_Seed", 0, 100, 1)
 gui.add(params, "Rotation", 0, 180, 1)
+gui.addColor(params, "Background")
 gui.add(params, "Plain_Gradient", 0, 1, 1)
-gui.add(params, "Red1", 0, 255, 1)
-gui.add(params, "Green1", 0, 255, 1)
-gui.add(params, "Blue1", 0, 255, 1)
+gui.addColor(params, "Color1")
 gui.add(params, "Transparency1", 0, 255, 1)
-gui.add(params, "Red2", 0, 255, 1)
-gui.add(params, "Green2", 0, 255, 1)
-gui.add(params, "Blue2", 0, 255, 1)
+gui.addColor(params, "Color2")
 gui.add(params, "Transparency2", 0, 255, 1)
 gui.add(params, "Download_Image")
 
@@ -37,22 +31,32 @@ gui.add(params, "Download_Image")
 //       Drawing
 // -------------------
 
+function hexToRGBA(hex, alpha) {
+    hex = hex.replace('#', ''); //we get rid of the #
+
+    let x = parseInt(hex, 16); //we convert hex to an integer
+
+    let r = (x >> 16) & 255;
+    let g = (x >> 8) & 255;
+    let b = x & 255;
+
+    return color(r, g, b, alpha);
+}
+
 function draw() {
     randomSeed(params.Random_Seed)
     rectMode(CENTER)
-    background("white")
+    background(params.Background)
     translate(width/2, height/2)
     if(params.Plain_Gradient==0){
-        fill(params.Red1, params.Green1, params.Blue1, params.Transparency1)
+        fill(hexToRGBA(params.Color1, params.Transparency1))
     }
     let t=0
     rotate(params.Rotation)
     for (let angle = 0; angle < TWO_PI; angle += TWO_PI / params.Number) {
         let k=random(10,240)
         if (params.Plain_Gradient==1){
-            let color1=color(params.Red1, params.Green1, params.Blue1, params.Transparency1)
-            let color2=color(params.Red2, params.Green2, params.Blue2, params.Transparency2)
-            fill(lerpColor(color1,color2,t))
+            fill(lerpColor(hexToRGBA(params.Color1, params.Transparency1),hexToRGBA(params.Color2, params.Transparency2),t))
             t+=1/params.Number
         }
         const f = k / 240

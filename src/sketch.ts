@@ -8,6 +8,7 @@ const params = {
     Random_Seed: 0,
     Rotation: 0,
     Background: "#FFFFFF",
+    Stroke: "#000000",
     Plain_Gradient: 0,
     Color1: "#FFFFFF",
     Transparency1: 0,
@@ -20,6 +21,7 @@ gui.add(params, "Number", 0, 200, 1)
 gui.add(params, "Random_Seed", 0, 100, 1)
 gui.add(params, "Rotation", 0, 180, 1)
 gui.addColor(params, "Background")
+gui.addColor(params, "Stroke")
 gui.add(params, "Plain_Gradient", 0, 1, 1)
 gui.addColor(params, "Color1")
 gui.add(params, "Transparency1", 0, 255, 1)
@@ -48,6 +50,7 @@ function draw() {
     rectMode(CENTER)
     background(params.Background)
     translate(width/2, height/2)
+    stroke(params.Stroke)
     if(params.Plain_Gradient==0){
         fill(hexToRGBA(params.Color1, params.Transparency1))
     }
